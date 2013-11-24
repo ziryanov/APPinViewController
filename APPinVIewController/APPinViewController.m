@@ -63,18 +63,8 @@
 
     NSAssert(self.pinCodeView != nil, @"APPinCodeView is not initialized");
     [self setupDefaultMessage];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
-    //Strange bug in iOS7. Keyboard do not shown after call directly
-    double delayInSeconds = .0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.pinCodeView becomeFirstResponder];
-    });
-
+    [self.pinCodeView becomeFirstResponder];
 }
 
 #pragma mark - Pin Code View Delegate

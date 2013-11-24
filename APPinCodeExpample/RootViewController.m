@@ -73,20 +73,20 @@
     self.pinCode = pinCode;
     [self reloadView];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:0];
     [self showAlertWithMessage:@"Pin created"];
 }
 
 //Verify
 - (void)pinCodeViewController:(APPinViewController *)controller didVerifiedPincodeSuccessfully:(NSString *)pinCode {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:0];
     [self showAlertWithMessage:@"Pin verified"];
 }
 
 //Change
 - (void)pinCodeViewController:(APPinViewController *)controller didChangePinCode:(NSString *)pinCode {
     self.pinCode = pinCode;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:0];
     [self showAlertWithMessage:@"Pin changed"];
 }
 
